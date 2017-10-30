@@ -1,29 +1,64 @@
 <template>
-  <div class="wrapper" @click="update">
-    <image :src="logoUrl" class="logo"></image>
-    <text class="title">Hello {{target}}</text>
-    <text class="desc">Now, let's use vue to build your weex app.</text>
+  <div>
+      <div class="lalala">
+        <text>lalala</text>
+      </div>
+      <div class="box" @click="onclick" @longpress="onlongpress" @appear="onappear"  @disappear="ondisappear"></div>
+      <div class="lalala">
+        <text>lalala</text>
+      </div>
   </div>
+
+  
 </template>
-
-<style>
-  .wrapper { align-items: center; margin-top: 120px; }
-  .title { padding-top:40px; padding-bottom: 40px; font-size: 48px; }
-  .logo { width: 360px; height: 156px; }
-  .desc { padding-top: 20px; color:#888; font-size: 24px;}
-</style>
-
 <script>
+  const modal = weex.requireModule('modal')
   export default {
-    data: {
-      logoUrl: 'http://img1.vued.vanthink.cn/vued08aa73a9ab65dcbd360ec54659ada97c.png',
-      target: 'World'
-    },
     methods: {
-      update: function (e) {
-        this.target = 'Weex'
-        console.log('target:', this.target)
+      onclick (event) {
+        console.log('onclick:', event)
+        modal.toast({
+          message: 'onclick',
+          duration: 0.8
+        })
+      },
+      onlongpress (event) {
+        console.log('onlongpress:', event)
+        modal.toast({
+          message: 'onlongpress',
+          duration: 0.8
+        })
+      },
+      onappear (event) {
+        console.log('onappear:', event)
+        modal.toast({
+          message: 'onappear',
+          duration: 0.8
+        })
+      },
+      ondisappear (event) {
+        console.log('ondisappear:', event)
+        modal.toast({
+          message: 'ondisappear',
+          duration: 0.8
+        })
       }
     }
   }
 </script>
+<style scoped>
+  .lalala{
+    padding-top: 1500px;
+    padding-bottom:1500px;
+  }
+  .box {
+    border-width: 2px;
+    border-style: solid;
+    border-color: #BBB;
+    width: 250px;
+    height: 250px;
+    margin-top: 250px;
+    margin-left: 250px;
+    background-color: #EEE;
+  }
+</style>
