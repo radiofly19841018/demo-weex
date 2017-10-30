@@ -1,11 +1,11 @@
 <template>
   <div>
       <div class="lalala">
-        <text>lalala</text>
+        <text>事件测试</text>
       </div>
       <div class="box" @click="onclick" @longpress="onlongpress" @appear="onappear"  @disappear="ondisappear"></div>
       <div class="lalala">
-        <text>lalala</text>
+        <text>事件测试</text>
       </div>
   </div>
 
